@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>[Offer in 4 to 8 words] | [Brand name]</title>
+<meta name="description" content="[One sentence: what it is, who it is for, what it does for them.]">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap">
+<style>
+/* STANDALONE ONLY: delete this rule when pasting the page into a builder. */
+body{margin:0;background:#07080F}
+
+/* ============ 1. TOKENS. Colour lives here and nowhere else. ============
+   Change the palette by changing these values (see design skill, references/palettes.md).
+   --act is the ONE accent. It means "act": buttons, the key promise highlight, the command. */
+.sps{
+  --ink:#07080F; --ink2:#0E1020; --ink3:#151829;
+  --fg:#F5F3EE; --fg2:#D9D6CF; --mute:#A4A2AE; --line:rgba(255,255,255,.12);
+  --act:#D7FF3A; --act-ink:#07080F;
+  --sans:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  --disp:'Bricolage Grotesque','Inter',system-ui,sans-serif;
+  --serif:'Instrument Serif',Georgia,serif;
+  --gut:clamp(16px,3vw,32px);
+  background:var(--ink);color:var(--fg);font:400 18px/1.6 var(--sans);
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+.sps *{box-sizing:border-box}
+.sps p{margin:0}
+.sps a{color:inherit}
+.sps img{display:block;max-width:100%;height:auto}
+.sps section{position:relative;padding-block:clamp(64px,8vw,120px)}
+.sps .wrap{max-width:1240px;margin:0 auto;padding-inline:var(--gut)}
+.sps .narrow{max-width:760px;margin-inline:auto}
+.sps .center{text-align:center}
+
+/* ============ 2. TYPE SCALE. Three sizes and the display. Nothing in between. ============ */
+.sps h1,.sps h2,.sps h3,.sps h4{margin:0;font-family:var(--disp);font-weight:800;letter-spacing:-.04em;text-wrap:balance}
+.sps h1{font-size:clamp(42px,4.7vw,76px);line-height:.92}
+.sps h2{font-size:clamp(40px,5.2vw,76px);line-height:.95}
+.sps h3{font-size:clamp(24px,2.4vw,32px);line-height:1.05;letter-spacing:-.02em}
+.sps .lede{font-size:clamp(19px,1.7vw,22px);line-height:1.55;color:var(--fg2)}
+.sps .small{font:500 13px/1.4 var(--sans);color:var(--mute)}
+
+/* ============ 3. ACCENT HELPERS. Use at most 2 or 3 per section. ============ */
+.sps .it{font:italic 400 1.08em/.85 var(--serif);letter-spacing:-.005em}          /* serif italic accent word */
+.sps mark{background:var(--act);color:var(--act-ink);padding:0 .14em;border-radius:.14em;-webkit-box-decoration-break:clone;box-decoration-break:clone}  /* highlighter */
+.sps .sq{text-decoration:underline wavy var(--act);text-decoration-thickness:.1em;text-underline-offset:.22em}  /* squiggle */
+.sps .ul{text-decoration:underline;text-decoration-color:var(--act);text-decoration-thickness:.12em;text-underline-offset:.16em} /* straight underline */
+.sps .eb{display:inline-flex;align-items:center;gap:10px;font:700 12px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--fg2);margin-bottom:20px}
+.sps .eb::before{content:"";width:28px;height:2px;background:currentColor}
+
+/* ============ 4. BUTTONS AND MICRO TRUST LINE ============ */
+.sps .btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;text-align:center;background:var(--act);color:var(--act-ink);text-decoration:none;font:800 20px/1.1 var(--disp);letter-spacing:-.01em;padding:22px 32px;border-radius:16px;box-shadow:0 6px 0 rgba(0,0,0,.4);transition:transform .15s ease}
+.sps .btn:hover{transform:translateY(2px)}
+.sps .btn.xl{font-size:23px;padding:26px 40px}
+.sps .micro{display:flex;flex-wrap:wrap;gap:6px 18px;font:500 14px/1.3 var(--sans);color:var(--mute)}
+.sps .micro span::before{content:"\2713\00a0";font-weight:800;color:var(--fg2)}
+
+/* ============ 5. HEADER + ANNOUNCEMENT ============ */
+.sps .ann{background:var(--ink3);color:var(--fg2);text-align:center;font:600 14px/1.35 var(--sans);padding:10px 16px}
+.sps .top{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-block:16px;border-bottom:1px solid var(--line)}
+.sps .logo{font:800 22px/1 var(--disp);letter-spacing:-.03em;text-decoration:none}
+.sps .top a.go{background:var(--fg);color:var(--ink);padding:12px 16px;border-radius:99px;text-decoration:none;font:700 14px/1 var(--sans);white-space:nowrap}
+
+/* ============ 6. HERO: headline, command and a device mockup built in CSS ============ */
+.sps .hero{padding-block:clamp(20px,3vw,40px) 0}
+.sps .hgrid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.08fr);gap:28px;align-items:center}
+.sps .pill{display:inline-flex;align-items:center;border:1px solid var(--line);border-radius:99px;padding:8px 14px;font:600 13px/1.2 var(--sans);color:var(--fg2)}
+.sps .hero h1{margin-top:18px}
+.sps .sub{font-size:clamp(18px,1.6vw,21px);line-height:1.5;color:var(--fg2);margin-top:16px;max-width:30em}
+.sps .cta{display:flex;flex-direction:column;align-items:flex-start;gap:14px;margin-top:24px}
+
+/* the stage is a size container: every device below is sized in cqw, so it scales with the column */
+.sps .stage{position:relative;container-type:inline-size;aspect-ratio:1.25/1}
+.sps .laptop{position:absolute;left:0;top:10cqw;width:80cqw;z-index:1}
+.sps .lid{background:#1A1C26;border-radius:2.2cqw 2.2cqw .4cqw .4cqw;padding:1.3cqw 1.3cqw 0;box-shadow:0 4cqw 8cqw -3cqw rgba(0,0,0,.8)}
+.sps .scr{container-type:inline-size;aspect-ratio:16/10;background:var(--ink2);border-radius:.6cqw .6cqw 0 0;overflow:hidden;position:relative;padding:5cqw 6cqw}
+.sps .scr .mn{display:flex;justify-content:space-between;font:600 3cqw/1 var(--sans);color:var(--mute)}
+.sps .scr .mh{font:800 9cqw/.95 var(--disp);letter-spacing:-.04em;color:var(--fg);margin-top:7cqw}
+.sps .scr .mh i{font:italic 400 1.08em/.85 var(--serif);color:var(--act)}
+.sps .scr .ln{height:2.4cqw;width:62%;background:rgba(255,255,255,.14);border-radius:99px;margin-top:4cqw}
+.sps .scr .ln.s{width:44%}
+.sps .scr .bt{display:inline-block;margin-top:6cqw;background:var(--act);height:7cqw;width:36cqw;border-radius:2cqw}
+.sps .base{height:2.2cqw;margin:0 -3cqw;background:#2A2D39;border-radius:0 0 3cqw 3cqw;box-shadow:0 2cqw 4cqw -1cqw rgba(0,0,0,.6)}
+.sps .phone{position:absolute;right:2cqw;bottom:-2cqw;width:27cqw;aspect-ratio:9/19.3;background:#000;border-radius:5.5cqw;padding:1.1cqw;box-shadow:0 5cqw 10cqw -3cqw rgba(0,0,0,.85),0 0 0 .3cqw rgba(255,255,255,.12);z-index:2}
+.sps .ps{container-type:inline-size;position:relative;width:100%;height:100%;border-radius:4.5cqw;overflow:hidden;background:var(--ink2);padding:9cqw 6cqw 0}
+.sps .ps::before{content:"";position:absolute;top:3cqw;left:50%;width:30cqw;height:3.4cqw;transform:translateX(-50%);background:#000;border-radius:99px}
+.sps .ps .mh{font:800 15cqw/.95 var(--disp);letter-spacing:-.04em;color:var(--fg);margin-top:8cqw}
+.sps .ps .mh i{font:italic 400 1.08em/.85 var(--serif);color:var(--act)}
+.sps .ps .ln{height:4.4cqw;background:rgba(255,255,255,.14);border-radius:99px;margin-top:6cqw}
+.sps .ps .bt{margin-top:10cqw;background:var(--act);height:14cqw;border-radius:5cqw}
+
+/* ============ 7. SECTIONS ============ */
+.sps .old{list-style:none;margin:40px 0 0;padding:0;counter-reset:s;display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.sps .old li{counter-increment:s;background:var(--ink3);border:1px solid var(--line);border-radius:14px;padding:18px 16px;font:700 16px/1.3 var(--sans);color:var(--fg2)}
+.sps .old li::before{content:"0" counter(s);display:block;font:800 26px/1 var(--disp);color:var(--mute);margin-bottom:10px}
+.sps .old li:last-child{border-color:var(--fg2)}
+.sps .items{list-style:none;margin:28px 0 0;padding:0;text-align:left}
+.sps .items li{display:flex;justify-content:space-between;gap:16px;padding-block:13px;border-top:1px solid var(--line);font-size:17px}
+.sps .items li span:last-child{font:700 13px/1.6 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--fg2)}
+.sps .price{margin-top:24px;display:flex;align-items:flex-end;justify-content:center;gap:16px;flex-wrap:wrap}
+.sps .price .now{font:800 clamp(72px,8vw,108px)/.85 var(--disp);letter-spacing:-.05em}
+.sps .price .vs{font-size:15px;color:var(--fg2);max-width:18em;text-align:left;padding-bottom:6px}
+.sps .guar{margin-top:40px;border:1px solid var(--line);border-radius:22px;padding:clamp(22px,3vw,36px);text-align:left}
+.sps .guar p{margin-top:10px;color:var(--fg2)}
+.sps .disc{font-size:13px;line-height:1.6;color:var(--mute);margin-top:14px}
+
+/* ============ 8. STICKY MOBILE BUY BAR (shows after the hero, hides at the offer) ============ */
+.sps .bar{position:fixed;left:0;right:0;bottom:0;z-index:30;background:rgba(7,8,15,.94);border-top:1px solid var(--line);padding:12px var(--gut) calc(12px + env(safe-area-inset-bottom,0px));display:flex;align-items:center;justify-content:space-between;gap:12px;transform:translateY(110%);transition:transform .3s ease}
+.sps .bar.on{transform:none}
+.sps .bar p{font:800 17px/1.1 var(--disp);letter-spacing:-.02em;color:var(--fg)}
+.sps .bar .btn{padding:14px 22px;font-size:16px;box-shadow:0 4px 0 rgba(0,0,0,.4)}
+
+/* ============ 9. FOOTER ============ */
+.sps footer{border-top:1px solid var(--line);padding-block:40px 120px;font-size:13px;line-height:1.6;color:var(--mute)}
+.sps footer p+p{margin-top:10px}
+
+/* ============ 10. RESPONSIVE. Phones get one column, the headline and the command first. ============ */
+@media (max-width:1020px){
+  .sps .hgrid{display:flex;flex-direction:column;align-items:stretch}
+  .sps .hl{display:contents}
+  .sps .pill{order:1;align-self:center}
+  .sps .hero h1{order:2;text-align:center}
+  .sps .cta{order:3;align-items:center}
+  .sps .stage{order:4;max-width:640px;width:100%;margin:6px auto 0}
+  .sps .sub{order:5;text-align:center;margin-inline:auto}
+  .sps .micro{justify-content:center}
+  .sps .old{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:720px){
+  .sps{font-size:17px}
+  .sps .ann{display:none}
+  .sps .top a.go{display:none}
+  .sps .hero{padding-block:16px 0}
+  .sps .top{padding-block:12px}
+  .sps .pill{display:none}
+  .sps .hero h1{font-size:clamp(36px,10.4vw,50px)}
+  .sps .stage{aspect-ratio:1.7/1}
+  .sps .laptop{top:4cqw;width:78cqw}
+  .sps .phone{width:24cqw}
+  .sps .btn,.sps .btn.xl{width:100%;font-size:19px;padding:20px 18px}
+  .sps .price{flex-direction:column;align-items:center}
+  .sps .bar p span{display:none}
+}
+@media (prefers-reduced-motion:reduce){.sps *{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<div class="sps">
+
+<div class="ann">[Announcement: one true line, only if it is true. Delete this bar if you have nothing real to say.]</div>
+
+<!-- ============ HERO: the first screen. Headline, device, command. ============ -->
+<header class="wrap hero">
+  <nav class="top">
+    <a class="logo" href="#">[Brand]</a>
+    <a class="go" href="#order">[Short command, e.g. Get it for $97]</a>
+  </nav>
+  <div class="hgrid">
+    <div class="hl">
+      <span class="pill">[Real proof in one line, e.g. Rated 4.9 by 212 clients]</span>
+      <h1>[Your promise in plain words] that <mark>[key result]</mark> <span class="it sq">[ending phrase].</span></h1>
+      <p class="sub">[Who it is for, what they get, how fast. Two sentences at most. Write it to the reader: "you".]</p>
+      <div class="cta" id="hero-cta">
+        <a class="btn xl" href="#order">[Command in the reader's words, e.g. Build my page today] <span>&rarr;</span></a>
+        <div class="micro"><span>[Real guarantee, e.g. 30-day money back]</span><span>[Real delivery, e.g. Instant download]</span></div>
+      </div>
+    </div>
+
+    <div class="stage" aria-label="Illustration of the product on a laptop and a phone">
+      <div class="laptop">
+        <div class="lid">
+          <div class="scr">
+            <div class="mn"><span>[Brand]</span><span>[Link] [Link]</span></div>
+            <div class="mh">[Your <i>headline</i>].</div>
+            <div class="ln"></div>
+            <div class="ln s"></div>
+            <div class="bt"></div>
+          </div>
+        </div>
+        <div class="base"></div>
+      </div>
+      <div class="phone">
+        <div class="ps">
+          <div class="mh">[Your <i>headline</i>].</div>
+          <div class="ln"></div>
+          <div class="bt"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ============ OLD WAY: numbered steps, last one "Start over" ============ -->
+<section>
+  <div class="wrap">
+    <p class="eb">[The old way]</p>
+    <h2>[How most people try this now.] <span class="it">[Sound familiar?]</span></h2>
+    <ol class="old">
+      <li>[Old step 1]</li>
+      <li>[Old step 2]</li>
+      <li>[Old step 3]</li>
+      <li>[Old step 4]</li>
+      <li>Start over</li>
+    </ol>
+    <p class="lede narrow" style="margin-top:32px"><b>It's not your fault.</b> [Blame the method, not the reader. One sentence on why the old way fails.]</p>
+  </div>
+</section>
+
+<!-- ============ OFFER: price, what is included, one command ============ -->
+<section id="order">
+  <div class="wrap narrow center">
+    <p class="eb">[Everything you get]</p>
+    <h2>[Offer name] <span class="it">[one-line promise].</span></h2>
+    <ul class="items">
+      <li><span>[Deliverable 1]</span><span>Included</span></li>
+      <li><span>[Deliverable 2]</span><span>Included</span></li>
+      <li><span>[Deliverable 3]</span><span>Included</span></li>
+    </ul>
+    <p class="price"><span class="now">$[PRICE]</span><span class="vs">[Honest anchor: what the alternative really costs, from a source you can name. Delete if you have none.]</span></p>
+    <div style="margin-top:24px"><a class="btn xl" href="#checkout" data-checkout>[Command with the price, e.g. Get it for $97] <span>&rarr;</span></a></div>
+    <div class="micro" style="justify-content:center;margin-top:14px"><span>[One payment or plan, stated plainly]</span><span>[Delivery]</span><span>[Guarantee]</span></div>
+  </div>
+</section>
+
+<!-- ============ GUARANTEE: state the exact process ============ -->
+<section style="padding-top:0">
+  <div class="wrap narrow">
+    <div class="guar">
+      <h3>[30]-day money-back guarantee.</h3>
+      <p>[Exact process, e.g. Email us within 30 days. We refund every cent. No forms, no questions.] Only write what you have agreed to honour.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>&copy; [Year] [Business name]. <a href="[terms-url]">Terms</a> &middot; <a href="[privacy-url]">Privacy</a></p>
+    <p>Results shown are individual results and are not typical. [Business name] provides [what it provides]. Your outcome depends on your offer, your traffic, and your effort. Example designs show fictional businesses.</p>
+  </div>
+</footer>
+
+<div class="bar" id="bar" aria-hidden="true">
+  <p>[Offer name]<span> $[PRICE]</span></p>
+  <a class="btn" href="#order" tabindex="-1">[Short command]</a>
+</div>
+
+</div>
+
+<script>
+(function(){
+  /* sticky buy bar: show once the hero command has scrolled away, hide when the offer is on screen */
+  var bar=document.getElementById('bar'),hero=document.getElementById('hero-cta'),order=document.getElementById('order');
+  if(!bar||!hero||!order||!('IntersectionObserver' in window))return;
+  var past=false,atOrder=false;
+  function set(){var on=past&&!atOrder;bar.classList.toggle('on',on);bar.setAttribute('aria-hidden',on?'false':'true')}
+  new IntersectionObserver(function(e){past=!e[0].isIntersecting&&e[0].boundingClientRect.top<0;set()}).observe(hero);
+  new IntersectionObserver(function(e){atOrder=e[0].isIntersecting;set()},{threshold:.15}).observe(order);
+})();
+</script>
+</body>
+</html>
